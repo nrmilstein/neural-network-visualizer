@@ -1,0 +1,12 @@
+body {
+  text-align: center;
+  font-family: sans-serif;
+}
+#drawArea {
+  border: solid 1px #aaa;
+  margin: auto;
+}
+#guess {
+  font-size: 30px;
+  margin-top: 1em;
+}
