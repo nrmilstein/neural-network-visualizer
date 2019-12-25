@@ -1,13 +1,18 @@
 $(document).ready(() => {
-  let network = DefaultNetwork.getDefaultNetwork();
-
   let canvas = document.getElementById("drawArea");
   drawArea = new DrawArea(canvas);
-  drawArea.onDraw(() => {
-    let output = network.feedForward(drawArea.getX()).map(e => e[0]);
-    let guess = argMax(output);
-    $("#guess").text(guess);
-  });
+
+  let network;
+
+  NetworkLoader.loadNetwork("network1.json")
+    .then(loadedNetwork => {
+      network = loadedNetwork;
+      drawArea.onDraw(() => {
+        let output = network.feedForward(drawArea.getX()).map(e => e[0]);
+        let guess = argMax(output);
+        $("#guess").text(guess);
+      });
+    });
 
   $("#clear").click(event => {
     drawArea.clear();
