@@ -61,7 +61,6 @@ class DrawArea {
       pixels[Math.floor(i / (4 * canvas.width))][(i / 4) % canvas.width] = imageData[i];
     }
 
-
     let xGrid = Array(28).fill(0).map(e => Array(28));
     let cellWidth = Math.floor(canvas.width / 28);
     let cellHeight = Math.floor(canvas.height / 28);
@@ -74,7 +73,8 @@ class DrawArea {
             cellIntensitySum += pixels[x][y];
           }
         }
-        xGrid[i][j] = 1.0 - ((cellIntensitySum / (cellWidth * cellHeight)) / 255.0);
+        let cellIntensityAverage = cellIntensitySum / (cellWidth * cellHeight);
+        xGrid[i][j] = 1.0 - (cellIntensityAverage / 255.0);
       }
     }
     return xGrid.flat();
