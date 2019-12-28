@@ -4,7 +4,7 @@ $(document).ready(() => {
 
   let network;
 
-  NetworkLoader.loadNetwork("network1.json")
+  NetworkLoader.loadNetwork("network2.json")
     .then(loadedNetwork => {
       network = loadedNetwork;
       drawArea.onDraw(() => {
