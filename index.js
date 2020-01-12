@@ -29,7 +29,6 @@ $(document).ready(() => {
 
       drawArea.onDraw(() => {
         let output = network.feedForward(drawArea.getX()).map(e => e[0]);
-        console.log(output);
         let guess = argMax(output);
         $("#guess").text(guess);
       });
