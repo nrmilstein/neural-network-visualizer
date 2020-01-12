@@ -1,4 +1,7 @@
-class DrawArea {
+import { NetworkLoader } from "./NetworkLoader.js";
+import { Network } from "./Network.js";
+
+export class DrawArea {
   constructor(canvas) {
     this._onDrawCallback = () => {};
 
@@ -15,6 +18,27 @@ class DrawArea {
     background.fillColor = 'white';
     background.sendToBack();
 
+    let rectangle = new paper.Rectangle(
+      new paper.Point(0.15 * width, 0.15 * height),
+      new paper.Point(0.85 * width, 0.85 * height)
+    );
+    let square = new paper.Path.Rectangle(rectangle);
+    square.strokeColor = '#e9e9ff';
+    square.strokeWidth = 3;
+
+    let vertLine = new paper.Path.Line(
+      new paper.Point(width / 2, height / 2 - 10),
+      new paper.Point(width / 2, height / 2 + 10)
+    );
+    vertLine.strokeColor = '#e9e9ff';
+    vertLine.strokeWidth = 3;
+
+    let horLine = new paper.Path.Line(
+      new paper.Point(width / 2 - 10, height / 2),
+      new paper.Point(width / 2 + 10, height / 2)
+    );
+    horLine.strokeColor = '#e9e9ff';
+    horLine.strokeWidth = 3;
 
     this._paths = [];
 
@@ -77,6 +101,6 @@ class DrawArea {
         xGrid[i][j] = 1.0 - (cellIntensityAverage / 255.0);
       }
     }
-    return xGrid.flat();
+    return xGrid;
   }
 }
