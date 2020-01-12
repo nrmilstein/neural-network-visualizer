@@ -19,8 +19,8 @@ export class DrawArea {
     background.sendToBack();
 
     let rectangle = new paper.Rectangle(
-      new paper.Point(0.15 * width, 0.15 * height),
-      new paper.Point(0.85 * width, 0.85 * height)
+      new paper.Point(0.1 * width, 0.1 * height),
+      new paper.Point(0.9 * width, 0.9 * height)
     );
     let square = new paper.Path.Rectangle(rectangle);
     square.strokeColor = '#e9e9ff';
