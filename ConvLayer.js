@@ -2,7 +2,7 @@ import { Layer } from "./Layer.js";
 
 export class ConvLayer extends Layer {
   // `weights` must be a weight matrix. Each row is an output layer, each column
-  // an input layer, and each entry a filter.
+  // an input layer, and each entry a 2D filter.
   // `biases` must be a column vector of biases.
   constructor(weights, biases, activationFunction) {
     super();
